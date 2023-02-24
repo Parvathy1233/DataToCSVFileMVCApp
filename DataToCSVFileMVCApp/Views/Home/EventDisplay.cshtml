@@ -1,0 +1,65 @@
+﻿@model List<DataToCSVFileMVCApp.Models.Event>
+@{
+    ViewBag.Title = "EventDisplay";
+}
+
+<h2>Event Display</h2>
+<br />
+<style>
+    .table-cotent {
+        border: groove;
+        margin: 25px 0;
+        font-size: medium;
+        min-width: 400px;
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgb(0,0,0,0.15);
+        align-content: center;
+    }
+    .table-content thead tr {
+        background-color: black;
+        color: white;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .table-content th,
+    .table-content td {
+        padding: 12px 15px;
+        align-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .table-content tbody tr.active {
+        font-weight: bold;
+        color: black;
+        align-content: center;
+    }
+</style>
+<table class="table-content">
+    <thead>
+        <tr class="active">
+            <th align="center">Event Name</th>
+            <th align="center">Tickets</th>
+            <th align="center">Quantity</th>
+            <th align="center">Expiry Date</th>
+        </tr>
+    </thead>
+    @foreach (var e in Model)
+    {
+        <tbody>
+            <tr class="active">
+                <td align="left">@e.ID</td>
+                <td align="center">@e.Name</td>
+                <td align="center">@e.Quantity</td>
+                <td align="center">@e.Date</td>
+            </tr>
+        </tbody>
+    }
+</table>
+@using (Html.BeginForm("CSV", "Home", FormMethod.Get))
+{
+    <button>Get Data</button>
+}
+

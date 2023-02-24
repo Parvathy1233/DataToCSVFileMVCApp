@@ -13,6 +13,7 @@ namespace DataToCSVFileMVCApp.Controllers
         string connecetionstring = "Data Source=LAPTOP-7UIHE5VR\\SQLEXPRESS;Initial Catalog=EventBookingManagement;Integrated Security=True";
         public ActionResult Index()
         {
+            //iuiiui
             return View();
         }
 
